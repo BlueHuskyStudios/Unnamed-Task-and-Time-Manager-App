@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<style>
+		:root {
+			font-family: sans-serif;
+		}
+		dt {
+			font-weight: bold;
+		}
+		section {
+			padding-left: 1em;
+		}
+	</style>
+</head>
+<body>
+<h1>Unnamed Task and Time Management App</h1>
+
+<section id="Section_Structure">
+	<h2 id="Structure">Structure</h2>
+	<dl>
+		<dt id="Structure_Worlds">Worlds</dt>
+			<dd>Worlds allow you to separate drastically-different parts of your life (like <i>Home</i> and
+				<i>work</i>), much like most apps require separate accounts for.</dd>
+
+		<dt id="Structure_Groups">Groups</dt>
+			<dd>A Group is a set of Tasklists andor subgroups.</dd>
+			<dd>A Group can belong to exactly one World, but can be displayed, changed, and referenced in others for convenience.</dd>
+
+		<dt id="Structure_Tasklists">Tasklists</dt>
+			<dd>A Tasklist is a set of tasks. Obviously.</dd>
+			<dd>A Tasklist can belong to exactly one Group, but can be displayed, changed, and referenced in others for convenience.</dd>
+			<dd>A Tasklist can be recurring or one-shot. When recurring tasklists recur, their completion state is reset.</dd>
+
+		<dt id="Structure_Tasks">Tasks</dt>
+			<dd>A Task is a myopic item that must be completed. Tasks can contain subtasks (which are also Tasks).</dd>
+			<dd>A Task is considered complete when all its subtasks are also complete.</dd>
+			<dd>Tasks can belong to exactly one Tasklist, but can be displayed, changed, and referenced in others for convenience.</dd>
+			<dd>A Task can be recurring or one-shot.
+				<ul>
+					<li>When recurring tasks recur, their completion state is reset.</li>
+					<li>The recurring/one-shot property is inherited from the task's list by default, but can be
+						changed.</li>
+					<li>One-shot tasks within recurring tasks and tasklists are <em>not</em> reset when the tasklist
+						recurs.</li>
+					<li>Recurring tasks within recurring tasks and tasklists share the same recur interval as their
+						parent, and this cannot be changed.</li>
+				</ul>
+			</dd>
+	</dl>
+</section>
+
+<section id="Section_Priority">
+	<h2 id="Priority">Priority</h2>
+	<p>A cascading priority system will allow users to let themselves, others with viewing permission, and the app's automation to understand how to prioritize things.</p>
+	<ol>
+		<li>User preferences dictate the default priority (first install starts with Medium).</li>
+		<li>Updating that preference gives the option to cascade the change or leave existing tasks at their current priority.</li>
+		<li>Each group has its own priority. By default this is the same as the user's preference.</li>
+		<li>Each tasklist group has its own priority. By default this is the same as its group's.</li>
+		<li>Each item in a tasklist has its own priority. By default this is the same as the tasklist's.</li>
+		<li>Tasklists have a  or specific task (defaults to inherited from tasklist)</li>
+	</ol>
+
+	<section id="Section_Priority_Customization">
+		<h3 id="Priority_Customization">Priority tiers can be customized</h3>
+		<p>Priorities have arbitrary numbers associated (string-parsed decimal fractions). Priorities have arbitrary colors
+			associated.</p>
+		<p>Defaults:</p>
+		<ol>
+			<li>Immediate - 1000</li>
+			<li>Very High - 800</li>
+			<li>High - 700</li>
+			<li>Medium - 500</li>
+			<li>Low - 300</li>
+			<li>Very Low - 200</li>
+			<li>On hold - 100</li>
+			<li>Won't happen - 0</li>
+		</ol>
+	</section>
+</section>
+
+<section id="Section_Cloud">
+	<h2 id="Cloud">Cloud</h2>
+	<ul>
+		<li>All data will be saved to a set of servers. That said, a 3rd-party or personal server can be used if you want.</li>
+		<li>Data will be encryption in storage and transmission</li>
+		<li>You will be able to share and collaborate on groups or tasklists with others using the same server set. You
+			cannot share or collaborate on worlds; those are for separation of personal mindsets.</li>
+	</ul>
+
+</section>
+
+<section id="Section_Automation">
+	<h2 id="Automation">Automation</h2>
+	<blockquote>This app will have a strong emphasis on automatability.</blockquote>
+
+	<section id="Section_Automation_Other-to-app">
+		<h3 id="Automation_Other-to-app">Other-to-app Hierarchy</h3>
+		<ol>
+			<li>Platform-specific automation events are caught by a specialized plugin for each platform. This allows many
+				approaches, such as Tasker, Apple Events, network-pushed events, etc. to all automate the app.</li>
+			<li>Plugins will conform to a specific API that describes all the ways the app can be automated.</li>
+			<li>The app's central automation service will listen for events fired by plugins via the API via sockets, and
+				automate the app.</li>
+		</ol>
+	</section>
+
+	<section id="Section_Automation_App-to-other">
+		<h3 id="Automation_App-to-other">App-to-other</h3>
+		<ol>
+			<li>Internal events that are registered as triggering external events will fire to the central automation
+				service.</li>
+			<li>The automation service will pass these events on to any plugins that are registered as listening for them
+				via a similar API as the one used for other-to-app automation.</li>
+			<li>The plugin will then perform the action it deems necessary upon receiving the event.</li>
+		</ol>
+	</section>
+
+	<section id="Section_Automation_Preinstalled-plugins">
+		<h3 id="Automation_Preinstalled-plugins">Preinstalled plugins</h3>
+		<p>Out-of-the-box, the app will come with plugins for sending notifications to the OS, receiving location change
+			events, etc.</p>
+	</section>
+</section>
+
+<section id="Section_UI">
+	<h2 id="UI">UI</h2>
+	<p>The UI hasn't been fleshed-out, but it's absolutely crucial that it is made beautiful, delightful, and
+		intuitive. If not, the complexity of the functionality may be miscommunicated, daunting, or just confusing.</p>
+</section>
+
+<section id="Section_Delightful-Features">
+	<h2>Delightful features</h2>
+	<ul>
+		<li>Location-based silencing and hiding of tasks</li>
+		<li>Tiered sorting (both soft and hard), like "By completion status, then by date due, then by name, then by
+			date made"</li>
+		<li>Certain tasks can be "pinned to top" to guarantee they're always in your head. Maximum priority and
+			imminently-due tasks can thus be set to be elevated above these priorities.</li>
+		<li>Custom tags can be assigned to groups, tasklists, and tasks. These will be reflected in a Tags view and in
+			search queries</li>
+	</ul>
+</section>
+
+<section id="Section_Cross-Platform">
+	<h2 id="Cross-Platform">Cross-Platform</h2>
+	<p>Starting off, I plan to make this for <strong>Windows, Mac, Linux, and Android</strong>.</p>
+
+	<section id="Section_Cross-Platform_Why-not-all">
+		<h3 id="Cross-Platform_Why-not-all">Why not iOS or Windows Phone?</h3>
+		<p><strong>tl;dr:</strong> I'm balancing my strengths and weaknesses with what tech is out there today.</p>
+		<section id="Section_Cross-Platform_Why-not-all_Technical">
+			<h4 id="Cross-Platform_Why-not-all_Technical">Super-techincal explanation:</h4>
+			<ol>
+				<li>My first choice would be <b>Swift</b>; it's a beautiful language that runs very fast and is cross-platform. The
+					problems with Swift start with the IDE; Xcode is great for it, but that's only for macOS, and I own no
+					computers that run that. But that's manageable, right? I could just buy a Mac or make a Hackintosh.
+					Correct! So there are other issues. Swift has only very slight support for Linux; there's no official IDE
+					and there's a high entry curve to creating a new project without one. Again, I could spend the time and
+					effort to get that working. The next wall we hit is Android; Swift has no official support for it, and
+					having dabbled in C++-level Android apping, I know it's much more annoying than just going with the
+					standard JVM approach. And lastly, Swift doesn't support Windows or Windows Phone at all. There are
+					rumblings about upcoming support, but as of right now there is none. So, Swift is sadly off the table.</li>
+				<li>The alternative I went with is <strong>Kotlin</strong>! Kotlin is like Swift, but it runs on the
+					JVM, which is supported by the aforementioned platforms, but not by iOS or Windows Phone. This is
+					unfortunate, to say the least, but it's something I can live with for now. If worst comes to worst and I
+					have to rewrite it for iOS, its very close similarity to Swift will ease that pain.</li>
+				<li>The most truly cross-platform langauge I considered was <strong>C++</strong>, but... no. I ain't going into
+					the realm of manual memory management and shim-based booleans and strings.</li>
+				<li>The last thing I considered was <strong>Node.JS</strong> (and things like QT and Cordova). It's become very
+					popular and has proved successful on all platforms, even with official support by Microsoft in the UWP.
+					Unfortunately, I don't know Node.JS at all... I could learn it. I should learn it. But this is a
+					side-project I'll work on within the 3 free hours I get each day. Maybe I'll end up going Node, anyway.</li>
+			</ol>
+		</section>
+	</section>
+</section>
+
+</body>
+</html>
