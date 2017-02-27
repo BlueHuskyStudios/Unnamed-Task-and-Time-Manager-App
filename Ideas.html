@@ -3,6 +3,10 @@
 <head>
 	<title>Unnamed Task and Time Management App</title>
 	<style>
+		*|* {
+			box-sizing: border-box;
+		}
+
 		:root {
 			background-color: #ECEFF1;
 			font-family: sans-serif;
@@ -18,7 +22,7 @@
 		}
 
 		section {
-			box-shadow: 0 3pt 1em rgba(0,0,0,0.3);
+			box-shadow: 0 4pt 1em rgba(0,0,0,0.3);
 			border-radius: 3pt;
 			background: #FFF;
 			padding: 1em 1ex;
@@ -60,6 +64,35 @@
 		ol>li {
 			margin: 1ex 0;
 		}
+			nav ol>li {
+				margin: 1ex;
+			}
+
+		.plain-list {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		.button {
+			transition-duration: 0.2s;
+			transition-property: background-color, box-shadow;
+
+			background: #FFF;
+			border-radius: 3pt;
+			box-shadow: 0 2pt 1ex rgba(0,0,0,0.2);
+			color: #1565C0;
+			cursor: pointer;
+			display: inline-block;
+			font-weight: bold;
+			padding: 1ex 1em;
+			text-align: center;
+			text-decoration: none;
+		}
+			.button:active {
+				background: #E3F2FD;
+				box-shadow: 0 1pt 2pt rgba(0,0,0,0.2);
+			}
 
 		blockquote {
 			background: rgba(139,195,74,.2);
@@ -68,6 +101,8 @@
 			padding: 3pt 1em;
 		}
 	</style>
+
+	<link rel="stylesheet" type="text/css" href="https://shared.bhstudios.org/_incl/css-masher.php?ids=19&.css" />
 </head>
 
 
@@ -79,6 +114,19 @@
 		<p>I have lots of ideas for a task-and-time management app. They're laid-out herein.</p>
 		<aside><a href="https://github.com/BlueHuskyStudios/Unnamed-Task-and-Time-Manager-App/">GitHub Repo</a></aside>
 	</header>
+
+
+
+	<nav>
+		<ol class="plain-list flex-row flex-wrap flex-horiz-space-around">
+			<li><a href="#Section_Structure" class="button">Structure</a></li>
+			<li><a href="#Section_Priority" class="button">Priority</a></li>
+			<li><a href="#Section_Cloud" class="button">Cloud</a></li>
+			<li><a href="#Section_Automation" class="button">Automation</a></li>
+			<li><a href="#Section_Delightful-Features" class="button">Delightful features</a></li>
+			<li><a href="#Section_Cross-Platform" class="button">Cross-Platform</a></li>
+		</ol>
+	</nav>
 
 
 
