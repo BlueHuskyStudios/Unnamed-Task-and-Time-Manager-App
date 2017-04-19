@@ -100,6 +100,16 @@
 			margin: 1em 2em;
 			padding: 3pt 1em;
 		}
+
+		table {
+			border-spacing: 0;
+			border-collapse: collapse;
+			margin: auto;
+		}
+			th:not(:empty), td:not(:empty) {
+				border: 1px solid #B0BEC5;
+				padding: 1ex 1em;
+			}
 	</style>
 
 	<link rel="stylesheet" type="text/css" href="https://shared.bhstudios.org/_incl/css-masher.php?ids=19&.css" />
@@ -283,43 +293,48 @@
 
 	<section id="Section_Cross-Platform">
 		<h2 id="Cross-Platform"><a href="#Section_Cross-Platform">Cross-Platform</a></h2>
-		<p>Starting off, I plan to make this for <strong>Windows, Mac, Linux, and Android</strong>.</p>
+		<p>This will be available on all major platforms, using this stack:</p>
 
-		<section id="Section_Cross-Platform_Why-not-all">
-			<h3 id="Cross-Platform_Why-not-all"><a href="#Section_Cross-Platform_Why-not-all">Why not iOS or Windows
-				Phone?</a></h3>
-			<p><strong>tl;dr:</strong> I'm balancing my strengths and weaknesses with what tech is out there today.</p>
-			<section id="Section_Cross-Platform_Why-not-all_Technical">
-				<h4 id="Cross-Platform_Why-not-all_Technical"><a
-						href="#Section_Cross-Platform_Why-not-all_Technical">Super-techincal explanation:</a></h4>
-				<ol>
-					<li>My first choice would be <b>Swift</b>; it's a beautiful language that runs very fast and is
-						cross-platform. The problems with Swift start with the IDE; Xcode is great for it, but that's
-						only for macOS, and I own no computers that run that. But that's manageable, right? I could
-						just buy a Mac or make a Hackintosh. Correct! So there are other issues. Swift has only very
-						slight support for Linux; there's no official IDE and there's a high entry curve to creating
-						a new project without one. Again, I could spend the time and effort to get that working. The
-						next wall we hit is Android; Swift has no official support for it, and having dabbled in
-						C++-level Android apping, I know it's much more annoying than just going with the standard JVM
-						approach. And lastly, Swift doesn't support Windows or Windows Phone at all. There are
-						rumblings about upcoming support, but as of right now there is none. So, Swift is sadly off the
-						table.</li>
-					<li>The alternative I went with is <strong>Kotlin</strong>! Kotlin is like Swift, but it runs on
-						the JVM, which is supported by the aforementioned platforms, but not by iOS or Windows Phone.
-						This is unfortunate, to say the least, but it's something I can live with for now. If worst
-						comes to worst and I have to rewrite it for iOS, its very close similarity to Swift will ease
-						that pain.</li>
-					<li>The most truly cross-platform langauge I considered was <strong>C++</strong>, but... no. I
-						ain't going into the realm of manual memory management and shim-based booleans and
-						strings.</li>
-					<li>The last thing I considered was <strong>Node.JS</strong> (and things like QT and Cordova). It's
-						become very popular and has proved successful on all platforms, even with official support by
-						Microsoft in the UWP. Unfortunately, I don't know Node.JS at all... I could learn it. I should
-						learn it. But this is a side-project I'll work on within the 3 free hours I get each day. Maybe
-						I'll end up going Node, anyway.</li>
-				</ol>
-			</section>
-		</section>
+		<table>
+			<thead>
+				<tr>
+					<td></td>
+					<th>macOS</th>
+					<th>iOS</th>
+					<th>Windows</th>
+					<th>Linux</th>
+					<th>Android</th>
+					<th>Web</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<th>UI Platform</th>
+					<td>Cocoa</td>
+					<td>Cocoa Touch</td>
+					<td colspan="2">Swing or JavaFX</td>
+					<td>Material</td>
+					<td>Node.JS</td>
+				</tr>
+
+				<tr>
+					<th>UI Language</th>
+					<td colspan="2">Swift</td>
+					<td colspan="4">Kotlin</td>
+				</tr>
+
+				<tr>
+					<th>Local Logic</th>
+					<td colspan="6">Kotlin</td>
+				</tr>
+
+				<tr>
+					<th>Cloud Logic</th>
+					<td colspan="6">Undetermined</td>
+				</tr>
+			</tbody>
+		</table>
 	</section>
 </article>
 </body>
