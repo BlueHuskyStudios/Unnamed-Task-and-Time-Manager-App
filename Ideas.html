@@ -10,7 +10,15 @@
 		:root {
 			background-color: #ECEFF1;
 			font-family: sans-serif;
+			padding-bottom: 30vh;
 		}
+			:root::after {
+				content: "©2017 Blue Husky Studios";
+				display: block;
+				font-size: 0.7rem;
+				text-align: center;
+				color: rgba(0, 0, 0, 0.25);
+			}
 
 		header {
 			padding: 1em;
@@ -52,6 +60,24 @@
 				h6 :link:hover, h6 :visited:hover, h6 :link:focus, h6 :visited:focus {
 					text-decoration: underline;
 				}
+				h1 :link::after, h1 :visited::after,
+				h2 :link::after, h2 :visited::after,
+				h3 :link::after, h3 :visited::after,
+				h4 :link::after, h4 :visited::after,
+				h5 :link::after, h5 :visited::after,
+				h6 :link::after, h6 :visited::after {
+					content: "  🔗";
+					/*font-size: 75%;*/
+					opacity: 0;
+				}
+					h1 :link:hover::after, h1 :visited:hover::after, h1 :link:focus::after, h1 :visited:focus::after,
+					h2 :link:hover::after, h2 :visited:hover::after, h2 :link:focus::after, h2 :visited:focus::after,
+					h3 :link:hover::after, h3 :visited:hover::after, h3 :link:focus::after, h3 :visited:focus::after,
+					h4 :link:hover::after, h4 :visited:hover::after, h4 :link:focus::after, h4 :visited:focus::after,
+					h5 :link:hover::after, h5 :visited:hover::after, h5 :link:focus::after, h5 :visited:focus::after,
+					h6 :link:hover::after, h6 :visited:hover::after, h6 :link:focus::after, h6 :visited:focus::after {
+						opacity: 1;
+					}
 
 		dt {
 			font-weight: bold;
@@ -271,12 +297,27 @@
 		<p>The UI hasn't been fleshed-out, but it's absolutely crucial that it is made beautiful, delightful, and
 			intuitive. If not, the complexity of the functionality may be miscommunicated, daunting, or just
 			confusing.</p>
+
+		<section id="Section_UI_Notifications">
+			<h3 id="UI_Notifications"><a href="#Section_UI_Notifications">Notifications</a></h3>
+			<p>Notifications are very important in a task management app. In fact, one might argue they're the
+				 <em>most</em> important. This means they <em>must</em> be just right, or this app will fail.</p>
+
+			 <ul>
+				 <li>Always use platform-native notifications; these are what the user expects</li>
+				 <li>Allow notifications to occur <em>before</em> the due date, up to some arbitrary amount the user
+					 can specify (e.g. 1 week before, 5 minutes before, etc.)</li>
+			 </ul>
+		</section>
 	</section>
 
 
 
 	<section id="Section_Delightful-Features">
 		<h2 id="Delightful-Features"><a href="#Section_Delightful-Features">Delightful features</a></h2>
+		<p>Delight is essential to the user enjoying the experience of using the app. Here are a few ideas for how
+			this app can be more delightful:</p>
+
 		<ul>
 			<li>Location-based silencing and hiding of tasks</li>
 			<li>Tiered sorting (both soft and hard), like "By completion status, then by date due, then by name, then
@@ -285,6 +326,9 @@
 				imminently-due tasks can thus be set to be elevated above these priorities.</li>
 			<li>Custom tags can be assigned to groups, tasklists, and tasks. These will be reflected in a Tags view and
 				in search queries</li>
+			<li>Completion statuses similar to priority tiers (defaults included, customs supported), but can be
+				localized to a single structure</li>
+			<li>Defer until another task anywhere else is completed</li>
 		</ul>
 	</section>
 
