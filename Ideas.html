@@ -13,7 +13,7 @@
 			padding-bottom: 30vh;
 		}
 			:root::after {
-				content: "©2017 Blue Husky Studios";
+				content: "©2018 Blue Husky Studios";
 				display: block;
 				font-size: 0.7rem;
 				text-align: center;
@@ -136,6 +136,57 @@
 				border: 1px solid #B0BEC5;
 				padding: 1ex 1em;
 			}
+
+			table.platforms th:not(:empty) {
+				background-color: #63FFDA;
+				border-color: #FFF;
+			}
+				table.platforms th:not(:empty):last-child {
+					border-right: none;
+				}
+
+				table.platforms tbody tr:last-child th:not(:empty),
+				table.platforms thead tr:last-child th:not(:empty) {
+					border-bottom: none;
+				}
+				table.platforms tbody th {
+					border-left: none;
+					border-right: none;
+				}
+
+				table.platforms td:not(:empty):first-of-type {
+					border-left: none;
+				}
+				table.platforms td:not(:empty):last-of-type {
+					border-right: none;
+				}
+
+
+			table.platforms [class*="plat-" i] {
+				border: none;
+			}
+
+			table.platforms .plat-kotlin-native {
+				background-color: #f8bbd0;
+			}
+
+			table.platforms .plat-kotlin-jvm {
+				background-color: #bbdefb;
+			}
+
+			table.platforms .plat-kotlin-js {
+				background-color: #fff59d;
+			}
+			table.platforms .plat-lib td {
+				border-top: none;
+				border-right: none;
+			}
+
+			table.platforms .plat-ui.plat-lib td {
+				border-bottom: none;
+			}
+
+
 	</style>
 
 	<link rel="stylesheet" type="text/css" href="https://shared.bhstudios.org/_incl/css-masher.php?ids=19&.css" />
@@ -338,7 +389,7 @@
 		<h2 id="Cross-Platform"><a href="#Section_Cross-Platform">Cross-Platform</a></h2>
 		<p>This will be available on all major platforms, using this stack:</p>
 
-		<table>
+		<table class="platforms">
 			<thead>
 				<tr>
 					<td></td>
@@ -352,7 +403,7 @@
 			</thead>
 
 			<tbody>
-				<tr>
+				<tr class="plat-ui plat-lib">
 					<th>UI Platform</th>
 					<td>Cocoa</td>
 					<td>Cocoa Touch</td>
@@ -361,23 +412,23 @@
 					<td>HTML+CSS</td>
 				</tr>
 
-				<tr>
+				<tr class="plat-ui plat-lang">
 					<th>UI Language</th>
-					<td colspan="2" rowspan="2">Kotlin/Native</td>
-					<td colspan="3" rowspan="2">Kotlin/JVM</td>
-					<td rowspan="2">Kotlin/JS</td>
+					<td colspan="2" rowspan="2" class="plat-kotlin-native">Kotlin/Native</td>
+					<td colspan="3" rowspan="2" class="plat-kotlin-jvm">Kotlin/JVM</td>
+					<td rowspan="2" class="plat-kotlin-js">Kotlin/JS</td>
 				</tr>
 
-				<tr>
+				<tr class="plat-logic plat-local">
 					<th>Local Logic</th>
 				</tr>
 
-				<tr>
+				<tr class="plat-logic plat-cloud">
 					<th>Cloud Logic</th>
-					<td colspan="6">Kotlin/JS</td>
+					<td colspan="6" class="plat-kotlin-js">Kotlin/JS</td>
 				</tr>
 
-				<tr>
+				<tr class="plat-lib plat-cloud">
 					<th>Cloud Platform</th>
 					<td colspan="6">Node.JS</td>
 				</tr>
