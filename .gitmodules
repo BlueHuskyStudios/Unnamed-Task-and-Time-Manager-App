@@ -1,0 +1,3 @@
+[submodule "_layouts/Neon-Jekyll-Layouts"]
+	path = _layouts/Neon-Jekyll-Layouts
+	url = https://github.com/BlueHuskyStudios/Neon-Jekyll-Layouts.git
