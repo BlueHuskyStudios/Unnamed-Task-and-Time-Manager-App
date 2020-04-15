@@ -7,3 +7,6 @@
 [submodule "_includes/Neon-Jekyll-Components"]
 	path = _includes/Neon-Jekyll-Components
 	url = https://github.com/BlueHuskyStudios/Neon-Jekyll-Components.git
+[submodule "_includes/Jekyll-Anchor-Headings"]
+	path = _includes/Jekyll-Anchor-Headings
+	url = https://github.com/allejo/jekyll-anchor-headings.git
