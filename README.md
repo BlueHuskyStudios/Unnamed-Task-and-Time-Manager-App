@@ -4,4 +4,4 @@
 
 # Ultimate Task and Time Manager App #
 
-I have a bunch of [ideas](https://uttma.github.io/Concept/Ideas.html) for how to make a great task and time tracking platform.
+I have a bunch of [ideas](https://uttma.github.io/Concept/) for how to make a great task and time tracking platform.

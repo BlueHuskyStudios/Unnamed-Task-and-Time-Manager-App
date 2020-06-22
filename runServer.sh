@@ -8,4 +8,5 @@ if [ 0 -ne $bundleCheckStatus ]; then
 fi
 
 # jekyll serve --trace --incremental
+bundle exec jekyll clean
 bundle exec jekyll serve --trace --incremental --safe
